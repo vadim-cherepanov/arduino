@@ -1,4 +1,4 @@
-/**/libraries/
-/**/.idea/
-/**/.python*/
-
+libraries/
+.idea/
+.python*/
+.DS_Store
