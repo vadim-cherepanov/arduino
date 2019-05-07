@@ -3,10 +3,7 @@
 #include <Adafruit_CircuitPlayground.h>
 static auto &Express = CircuitPlayground;
 
-#include <functional>
-
 using namespace std;
-
 
 ExpressGames::ExpressGames() : 
         _gameNumber(0), _buttonLeft(false), _buttonRight(true) {
@@ -26,10 +23,6 @@ void ExpressGames::Loop() {
         if (InMenu()) Menu();
         else Game();
     }
-}
-
-bool ExpressGames::Break() {
-    return InMenu();
 }
 
 bool ExpressGames::InMenu() const {
@@ -69,6 +62,7 @@ void ExpressGames::NextGameParameter() {
 
 void ExpressGames::Game() {
     ShowMenu();
-    _games[_gameNumber]->Draw();
-    _games[_gameNumber]->Loop(std::bind(&ExpressGames::Break, *this));
+    auto &game = _games[_gameNumber];
+    game->Draw();
+    while (!InMenu() && !game->Break()) if (game->Move()) game->Draw();
 }

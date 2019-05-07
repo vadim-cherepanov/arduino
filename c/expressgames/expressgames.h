@@ -20,7 +20,6 @@ public:
     ~ExpressGames();
     void AddGame(const shared_ptr<ExpressGame> game);
     void Loop();
-    bool Break();
 private:
     bool InMenu() const;
     void ShowMenu() const;
