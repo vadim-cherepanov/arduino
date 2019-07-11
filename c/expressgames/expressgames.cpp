@@ -34,7 +34,7 @@ void ExpressGames::ShowMenu() const {
     Express.redLED(show ? HIGH : LOW);
     if (show) {
         for (int i = 0; i < 5; ++i) Express.setPixelColor(i, 0, (i <= _gameNumber ? 255 : 0), 0);
-        int param = _games[_gameNumber]->GetParameter();
+        int param = _games.at(_gameNumber)->GetParameter();
         for (int i = 9; i >= 5; --i) Express.setPixelColor(i, 0, 0, (--param >= 0 ? 255 : 0));
     }
     else {
@@ -64,7 +64,7 @@ void ExpressGames::NextGameParameter() {
 
 void ExpressGames::Game() {
     ShowMenu();
-    auto &game = _games[_gameNumber];
+    auto &game = _games.at(_gameNumber);
     game->Draw();
     while (!InMenu() && !game->Break()) if (game->Move()) game->Draw();
 }
