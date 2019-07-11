@@ -56,7 +56,9 @@ void ExpressGames::NextGameNumber() {
 }
 
 void ExpressGames::NextGameParameter() {
-    _games[_gameNumber]->NextParameter();
+    auto &game = _games.at(_gameNumber);
+    auto parameter = game->GetParameter() + 1;
+    game->SetParameter(parameter <= game->GetParameterMax() ? parameter : game->GetParameterMin());
     ShowMenu();
 }
 

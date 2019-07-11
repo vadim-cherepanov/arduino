@@ -12,8 +12,10 @@ public:
     explicit ExpressGame(int parameterMin, int parameterMax) : 
             _parameterMin(parameterMin), _parameterMax(parameterMax), 
             _parameter(parameterMin) {}
+    int GetParameterMin() const { return _parameterMin; }
+    int GetParameterMax() const { return _parameterMax; }
     int GetParameter() const { return _parameter; }
-    virtual void NextParameter() { if (++_parameter > _parameterMax) _parameter = _parameterMin; Reset(); }
+    virtual void SetParameter(int parameter) { _parameter = parameter; Reset(); }
     virtual void Reset() = 0;
     virtual bool Break() { return false; };
     virtual bool Move() = 0;
