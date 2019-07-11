@@ -9,7 +9,7 @@ private:
     unsigned long _timeDelays[3];
     unsigned long _timeLastClick;
 public:
-    explicit Button(bool right, unsigned long timeMinimum = 150ul, unsigned long timeRepeatDelay = 750ul, unsigned long timeRepeatRate = 10); 
+    explicit Button(bool right, unsigned long timeMinimum = 250ul, unsigned long timeRepeatDelay = 750ul, unsigned long timeRepeatRate = 10ul); 
     bool Clicked(); 
     bool Down() const { return _state > 0; }
 };
