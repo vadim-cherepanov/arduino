@@ -7,6 +7,7 @@
 void setup() {
     ExpressGames expressGames;
     expressGames.AddGame(make_shared<MonkeyRooms>());
+    for (auto &p : expressGames.GetGames()) p->Reset();
     expressGames.Loop();
 }
 

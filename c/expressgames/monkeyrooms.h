@@ -17,7 +17,7 @@ protected:
     Button _buttonRight;
 public:
     explicit MonkeyRooms() : ExpressGame(2, 5), 
-            _buttonLeft(false), _buttonRight(true) { Reset(); }
+            _buttonLeft(false), _buttonRight(true) {}
     void Reset() override;
     bool Move() override;
     void Draw() const override;

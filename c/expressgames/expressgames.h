@@ -1,8 +1,8 @@
 #ifndef _EXPRESSGAMES_H_
 #define _EXPRESSGAMES_H_
 
-#include <vector>
 #include <memory>
+#include <vector>
 
 #include "button.h"
 #include "expressgame.h"
@@ -19,6 +19,7 @@ public:
     explicit ExpressGames();
     ~ExpressGames();
     void AddGame(const shared_ptr<ExpressGame> game);
+    const vector<shared_ptr<ExpressGame>> &GetGames() const { return _games; }
     void Loop();
 private:
     bool InMenu() const;
