@@ -1,4 +1,6 @@
-libraries/
-.idea/
-.python*/
-.DS_Store
+/*
+!/c/
+/c/*
+!/c/expressgames/
+!LICENSE
+!.gitignore
